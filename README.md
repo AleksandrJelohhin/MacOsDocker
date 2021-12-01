@@ -1,4 +1,4 @@
-# MacOsDocker
+# How to launch MacOs in Docker. Step by Step guide for Windows insider build of Windows 10 or Windows 11
 Create MacOS Virtual Machine on Ubuntu using WSL2 tech
 
 Sources used:
@@ -7,7 +7,7 @@ Sources used:
 - https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/
 - https://sugeul.github.io/2020-06-21-MacOS-on-WSL2/
 
-## For stable Windows 10 (I have not tested this option, but it defently must work)
+## For stable Windows 10 (I have not tested this option, but it defently must work) TLDR -- "kvm-ok" command says your CPU is not supported
 1) You need to install Linux distro in Hyper-V
 2) Enable guest virualization for installed disto using command: 
 ```
@@ -21,10 +21,11 @@ Set-VMProcessor -VMName "Ubuntu 20.04" -ExposeVirtualizationExtensions $true
 ```
 sudo apt update && sudo apt -y upgrade
 ```
-4) Install all packages need for virtualization **(Some of them may be not need anymore)**
+4) Install all packages need for virtualization .(Some of them may be not need anymore. **You will also need to install Docker for Linux**)
 ```
 sudo apt -y install build-essential libncurses-dev bison flex libssl-dev libelf-dev cpu-checker qemu-kvm aria2 dwarves qemu-system qemu-utils python3 python3-pip
 ```
+5) Go to Linux System Steps from here 
 
 ## For Windows insider build of Windows 10 or Windows 11
 ### Windows Machine
@@ -169,3 +170,5 @@ docker run -it \
 # username is user
 # passsword is alpine
 ```
+- Wait for it to download image and create VHD. MAC OS will be launched after that
+![image](https://user-images.githubusercontent.com/2877844/144255938-73bdccc5-0686-47f3-a8da-b50c695167ce.png)
