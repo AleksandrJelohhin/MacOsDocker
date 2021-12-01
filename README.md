@@ -134,3 +134,10 @@ sudo modprobe kvm_intel
 ```
 kvm-ok
 ```
+17) Switch back to Windows.
+Download and Install some "XServer" app that can run graphical Linux apps on Windows.
+I was using GWSL.
+```
+https://opticos.github.io/gwsl/tutorials/download.html
+```
+18) Launch installed GWSL and Enable 
