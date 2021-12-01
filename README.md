@@ -109,4 +109,8 @@ kernelCommandLine=intel_iommu=on iommu=pt kvm.ignore_msrs=1 kvm-intel.nested=1 k
 ```
 wsl.exe --shutdown Ubuntu
 ```
-12) Restart Docker Daemon 
+12) **Restart Docker Daemon** 
+13) Open WSL LINUX and check that new kernel is applied - should show today's date and the time should be a few minutes ago
+```
+uname -ar
+```
