@@ -26,12 +26,36 @@ sudo apt -y install build-essential libncurses-dev bison flex libssl-dev libelf-
 ```
 https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe
 ```
-2) Open Powershell and enable: 
-WSL2 feature for windows
+2) Open Powershell and enable:
+
+- WSL2 feature for windows
 ```
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
-Virtual Machine Platform
+- Virtual Machine Platform
 ```
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+3) Download and Install Linux kernel update package
+```
+https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+```
+4) Set Default version for WSL = 2
+```
+wsl --set-default-version 2
+```
+5) Donwload and Intall Linux sub system as WSL **(Ubuntu in my case)**
+```
+Invoke-WebRequest -Uri https://aka.ms/wslubuntu2004 -OutFile Ubuntu.appx -UseBasicParsing
+```
+```
+curl.exe -L -o ubuntu-2004.appx https://aka.ms/wsl-ubuntu-2004
+```
+```
+Add-AppxPackage .\Ubuntu.appx
+```
+6) Start WSL Linux, you've installed and create new user with root password
+7) Open Docker Desktop and Enable WSL2 suport for your WSL Linux. Docker information can be found here
+```
+https://docs.docker.com/desktop/windows/wsl/
 ```
