@@ -141,3 +141,4 @@ I was using GWSL.
 https://opticos.github.io/gwsl/tutorials/download.html
 ```
 18) Launch installed GWSL and Enable **GWSL Dsitro Tools** --> **Display/Audio Auto-Exporting**
+![image](https://user-images.githubusercontent.com/2877844/144253178-62924a3e-11f1-4047-9ade-977656de18b0.png)
