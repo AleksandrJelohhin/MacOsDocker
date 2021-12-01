@@ -110,7 +110,27 @@ kernelCommandLine=intel_iommu=on iommu=pt kvm.ignore_msrs=1 kvm-intel.nested=1 k
 wsl.exe --shutdown Ubuntu
 ```
 12) **Restart Docker Daemon** 
-13) Open WSL LINUX and check that new kernel is applied - should show today's date and the time should be a few minutes ago
+13) Open WSL LINUX and check that new kernel is applied - **should show today's date and the time should be a few minutes ago**
 ```
 uname -ar
+```
+If kernel is not updated and you used user folder as me, check that launched WSL Linux using that user 
+14) Configure kvm-intel 
+```
+sudo nano /etc/modprobe.d/kvm-nested.conf
+```
+Paste:
+```
+options kvm-intel nested=1
+options kvm-intel enable_shadow_vmcs=1
+options kvm-intel enable_apicv=1
+options kvm-intel ept=1
+```
+15) Load kenel module
+```
+sudo modprobe kvm_intel
+```
+16) Check KVM is OK - **Must say that everything is OK**, otherwise you wont be able to run guest virtualization 
+```
+kvm-ok
 ```
