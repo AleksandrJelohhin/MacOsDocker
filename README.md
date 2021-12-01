@@ -144,6 +144,8 @@ https://opticos.github.io/gwsl/tutorials/download.html
 ![image](https://user-images.githubusercontent.com/2877844/144253178-62924a3e-11f1-4047-9ade-977656de18b0.png)
 
 19) Switch back to Linux. Lets run MAC OS container. I used https://github.com/sickcodes/Docker-OSX. 
+NB! If you want to install fresh image yourself, you need to research how to create and mount VHD for qemu. 
+ 
 - **Run Catalina Pre-Installed**
 ```
 # 40GB disk space required: 20GB original image 20GB your container.
