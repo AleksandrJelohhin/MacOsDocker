@@ -134,7 +134,7 @@ sudo modprobe kvm_intel
 ```
 kvm-ok
 ```
-17) Switch back to Windows.
+17) Switch back to Windows
 Download and Install some "XServer" app that can run graphical Linux apps on Windows.
 I was using GWSL.
 ```
@@ -142,3 +142,22 @@ https://opticos.github.io/gwsl/tutorials/download.html
 ```
 18) Launch installed GWSL and Enable **GWSL Dsitro Tools** --> **Display/Audio Auto-Exporting**
 ![image](https://user-images.githubusercontent.com/2877844/144253178-62924a3e-11f1-4047-9ade-977656de18b0.png)
+
+19) Switch back to Linux. Lets run MAC OS container. I used https://github.com/sickcodes/Docker-OSX. 
+**Run Catalina Pre-Installed**
+```
+# 40GB disk space required: 20GB original image 20GB your container.
+docker pull sickcodes/docker-osx:auto
+
+# boot directly into a real OS X shell with a visual display [NOT HEADLESS]
+docker run -it \
+    --device /dev/kvm \
+    -p 50922:10022 \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e "DISPLAY=${DISPLAY:-:0.0}" \
+    -e GENERATE_UNIQUE=true \
+    sickcodes/docker-osx:auto
+
+# username is user
+# passsword is alpine
+```
