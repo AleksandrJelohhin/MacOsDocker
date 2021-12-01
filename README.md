@@ -78,3 +78,35 @@ aria2c -x 10 https://github.com/microsoft/WSL2-Linux-Kernel/archive/linux-msft-w
 tar -xf WSL2-Linux-Kernel-linux-msft-wsl-5.10.74.3.tar.gz
 cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.74.3
 ```
+5) Lets Edit Kernel
+```
+cp Microsoft/config-wsl .config
+make menuconfig
+```
+6) Proceed to **Processor type and features** -> **Linux guest support** enable built-in **KVM guest support**
+7) Build the new kernel (Will take some time)
+```
+make -j 8
+```
+8) Install modules (May be not needed but I've installed it anyway)
+```
+sudo make modules_install
+```
+9) Copy created Kernel to some folder you have access to (user folder for example)
+```
+cp arch/x86/boot/bzImage /mnt/c/Users/**<username>**/bzImage
+nano /mnt/c/Users/**<username>**/.wslconfig
+```
+10) Paste but don't forget to change <username> to your Windows username:
+```
+[wsl2]
+nestedVirtualization=true
+kernel=C:\\Users\\<username>\\bzImage
+pageReporting=true
+kernelCommandLine=intel_iommu=on iommu=pt kvm.ignore_msrs=1 kvm-intel.nested=1 kvm-intel.ept=1 kvm-intel.emulate_invalid_guest_state=0 kvm-intel.enable_shadow_vmcs=1 kvm-intel.enable_apicv=1
+```
+11) Switch back to Windows and open Powershell and shutdown WSL Linux
+```
+wsl.exe --shutdown Ubuntu
+```
+12) Restart Docker Daemon 
