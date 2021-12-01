@@ -60,3 +60,21 @@ Add-AppxPackage .\Ubuntu.appx
 https://docs.docker.com/desktop/windows/wsl/
 ```
 ### Linux Machine
+1) Login as root
+```
+sudo su -
+```
+2) Update Linux Distro (Ubuntu was used in my case)
+```
+sudo apt update && sudo apt -y upgrade
+```
+3) Install all packages need for virtualization
+```
+sudo apt -y install build-essential libncurses-dev bison flex libssl-dev libelf-dev cpu-checker qemu-kvm aria2 dwarves qemu-system qemu-utils python3 python3-pip
+```
+4) Download latest WSL2 Linux Kernel
+```
+aria2c -x 10 https://github.com/microsoft/WSL2-Linux-Kernel/archive/linux-msft-wsl-5.10.74.3.tar.gz
+tar -xf WSL2-Linux-Kernel-linux-msft-wsl-5.10.74.3.tar.gz
+cd WSL2-Linux-Kernel-linux-msft-wsl-5.10.74.3
+```
