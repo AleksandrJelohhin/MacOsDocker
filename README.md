@@ -1,6 +1,12 @@
 # MacOsDocker
 Create MacOS Virtual Machine on Ubuntu using WSL2 tech
 
+Sources used:
+- https://github.com/sickcodes/Docker-OSX
+- https://dev.to/nicole/running-macos-on-windows-10-with-wsl2-kvm-and-qemu-21e1
+- https://boxofcables.dev/accelerated-kvm-guests-on-wsl-2/
+- https://sugeul.github.io/2020-06-21-MacOS-on-WSL2/
+
 ## For stable Windows 10 (I have not tested this option, but it defently must work)
 1) You need to install Linux distro in Hyper-V
 2) Enable guest virualization for installed disto using command: 
@@ -144,7 +150,7 @@ https://opticos.github.io/gwsl/tutorials/download.html
 ![image](https://user-images.githubusercontent.com/2877844/144253178-62924a3e-11f1-4047-9ade-977656de18b0.png)
 
 19) Switch back to Linux. Lets run MAC OS container. I used https://github.com/sickcodes/Docker-OSX. 
-NB! If you want to install fresh image yourself, you need to research how to create and mount VHD for qemu. 
+- **NB!** If you want to install fresh image yourself, you need to research how to create and mount VHD for qemu. 
  
 - **Run Catalina Pre-Installed**
 ```
